@@ -74,7 +74,7 @@ nano btfy.sh
 5. Run the script:
 
 ```shell
-./btfy.sh
+./btfy.sh start
 ```
 
 ## Usage

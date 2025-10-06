@@ -32,8 +32,8 @@ Btfy is a small Bash script made for Termux. It checks your device battery statu
 
 ## Preview
 
-| Full | Charging | Discharging | Low Warning |
-| ---- | -------- | ----------- | ----------- |
+| Full                                                                                                                              | Charging                                                                                                                              | Discharging                                                                                                                              | Low Warning                                                                                                                          |
+| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | <img width="270" height="358" alt="full" src="https://github.com/user-attachments/assets/8da46f68-39d1-4a9b-bbaf-24847c89066b" /> | <img width="270" height="358" alt="charging" src="https://github.com/user-attachments/assets/5fec53ad-f6e2-4ed8-bbbb-447b216ccefd" /> | <img width="270" height="358" alt="discharging" src="https://github.com/user-attachments/assets/713272d9-97de-4a4e-a48c-84e59ee397dd" /> | <img width="270" height="358" alt="warning" src="https://github.com/user-attachments/assets/72f3dd5b-9144-41bd-b07b-8bde480bc729" /> |
 
 ## Dependencies

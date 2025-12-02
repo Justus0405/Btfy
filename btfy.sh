@@ -136,6 +136,7 @@ startScript() {
 
     logMessage "info" "Started battery notifier"
     export lastChargingState=""
+    export sendPercentageNotification="false"
 
     while :; do
         # shellcheck disable=SC2155,SC2030
@@ -170,10 +171,10 @@ startScript() {
         fi
 
         # Sends a low battery warning when at 15%.
-        if [[ "${sendPercentageNotification}" == false ]]; then
+        if [[ "${sendPercentageNotification}" == "false" ]]; then
 
             if [[ ${batteryPercentage} -lt 16 ]]; then
-                export sendPercentageNotification=true
+                export sendPercentageNotification="true"
                 export embedTitle="Your Device needs to be charged!"
                 export embedColor="15961000"
                 getBatteryInfo
@@ -183,7 +184,7 @@ startScript() {
 
         # Unlocks the low battery warning at 17% again.
         if [[ ${batteryPercentage} -gt 16 ]]; then
-            export sendPercentageNotification=false
+            export sendPercentageNotification="false"
         fi
 
         sleep ${INTERVAL}

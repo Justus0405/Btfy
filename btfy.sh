@@ -151,19 +151,19 @@ startScript() {
                 # shellcheck disable=SC2155,SC2030
                 export embedTitle="Your Device is fully charged!"
                 # shellcheck disable=SC2155,SC2030
-                export embedColor="16376495"
+                export embedColor="#f9e2af"
                 getBatteryInfo
             fi
 
             if [[ "${chargingState}" == "CHARGING" ]]; then
                 export embedTitle="Your Device is Charging!"
-                export embedColor="10937249"
+                export embedColor="#a6e3a1"
                 getBatteryInfo
             fi
 
             if [[ "${chargingState}" == "DISCHARGING" ]]; then
                 export embedTitle="Your Device is Discharging!"
-                export embedColor="15961000"
+                export embedColor="#fab387"
                 getBatteryInfo
             fi
 
@@ -175,7 +175,7 @@ startScript() {
             if [[ ${batteryPercentage} -lt 16 ]]; then
                 export sendPercentageNotification=true
                 export embedTitle="Your Device needs to be charged!"
-                export embedColor="16429959"
+                export embedColor="#f38ba8"
                 getBatteryInfo
             fi
 
@@ -219,7 +219,7 @@ sendMessage() {
         --arg avatar_url "https://emoji.aranja.com/emojis/google/1f50c.png" \
         --arg title "${embedTitle}" \
         --arg description "${embedMessage}" \
-        --argjson color "${embedColor}" \
+        --arg color "${embedColor}" \
         --arg timestamp "${currentTime}" \
         '{
             username: $username,

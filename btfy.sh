@@ -202,6 +202,7 @@ getBatteryInfo() {
     # the battery model.
 
     export embedMessage=""
+    # shellcheck disable=SC2031
     export lastChargingState=${chargingState}
 
     while IFS= read -r line; do
@@ -212,28 +213,26 @@ getBatteryInfo() {
 }
 
 sendMessage() {
-    currentDatetime=$(date "+%d.%m.%Y %H:%M:%S")
+    currentTime=$(date -Iseconds)
     message=$(jq -n \
         --arg username "${embedName}" \
         --arg avatar_url "https://emoji.aranja.com/emojis/google/1f50c.png" \
         --arg title "${embedTitle}" \
         --arg description "${embedMessage}" \
         --argjson color "${embedColor}" \
-        --arg footer "Last checked: ${currentDatetime}" \
+        --arg timestamp "${currentTime}" \
         '{
             username: $username,
             avatar_url: $avatar_url,
-            embeds: [
-              {
-                title: $title,
-                description: $description,
-                color: $color,
-                footer: {
-                  text: $footer
+            embeds:[
+                {
+                    title: $title,
+                    description: $description,
+                    color: $color,
+                    timestamp: $timestamp
                 }
-              }
             ]
-          }')
+        }')
 
     curl -H "Content-Type: application/json" \
         -X POST \
